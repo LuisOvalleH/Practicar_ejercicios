@@ -1,5 +1,4 @@
 from node import Node
-
 class List:
     def __init__(self):
         self.size = 0
@@ -32,16 +31,16 @@ class List:
             self.tail = new_node
             self.size += 1
 
-    def search_by_value(self, data: int):
+    def search_by_value(self, data: str):
         current = self.head
 
         while current is not None:
-            if current.data == data:
+            if current.data.carnet == str(data):
                 return current
             else:
                 current = current.next
 
-        raise Exception('Elemento no encontrado')
+        raise Exception('Estudiante no encontrado')
 
     def search_by_index(self, index: int):
         current = self.head
@@ -66,7 +65,7 @@ class List:
             current = current.next
 
             if current is not None:
-                result += '->'
+                result += '\n'
 
         return result
 
@@ -149,7 +148,7 @@ class List:
 
         raise Exception('El nodo no se encuentra')
 
-    def remove_by_value(self, data: int) -> int:
+    def remove_by_value(self, data: str):
         current = self.search_by_value(data)
         if current is self.head:
             return self.shift()
